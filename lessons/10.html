@@ -1,1 +1,32 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101524"><title>10. Час, дати та події: datetime — Проєктний Python</title><link rel="stylesheet" href="../assets/style.css"><script defer src="../assets/course.js"></script><script defer src="../assets/extras.js"></script><script defer src="../assets/core.js"></script><script defer src="../assets/app.js"></script></head><body data-lesson="10"><a class="skip" href="#lesson">До уроку</a><header class="top"><a class="brand" href="../index.html"><span class="mark">Py<span>+</span></span>Проєктний Python</a><nav aria-label="Основна навігація"><a href="../index.html#catalog">Усі теми</a><button class="quiet" id="all-report">Мій звіт</button></nav></header><main id="lesson"></main><footer>Проєктний Python · Тема 10 / 32</footer><div id="live" role="status" aria-live="polite"></div></body></html>
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101524"><title>10. Час, дати та події: datetime — Проєктний Python</title><link rel="stylesheet" href="../assets/style.css"><script defer src="../assets/course.js"></script><script defer src="../assets/extras.js"></script><script defer src="../assets/core.js"></script><script defer src="../assets/app.js"></script><style>
+.time-engineers-card{display:flex;align-items:center;gap:22px;margin:26px 0;padding:27px;border:2px solid #f3c54e;border-radius:22px;background:linear-gradient(115deg,#fff0ba,#fff8df 55%,#e9f4ff);box-shadow:0 10px 25px #263b651a;color:#193659}
+.time-engineers-icon{font-size:52px;flex:none}.time-engineers-label{font-size:12px;font-weight:800;letter-spacing:.08em;color:#805500}.time-engineers-card h2{font-size:clamp(24px,4vw,32px);margin:7px 0}.time-engineers-card p{line-height:1.5;margin:0 0 16px}.time-engineers-button{display:inline-block;background:#183c73;color:#fff!important;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none}.time-engineers-button:hover{background:#24589e}@media(max-width:550px){.time-engineers-card{align-items:flex-start;gap:12px;padding:19px}.time-engineers-icon{font-size:30px}}
+</style></head><body data-lesson="10"><a class="skip" href="#lesson">До уроку</a><header class="top"><a class="brand" href="../index.html"><span class="mark">Py<span>+</span></span>Проєктний Python</a><nav aria-label="Основна навігація"><a href="../index.html#catalog">Усі теми</a><button class="quiet" id="all-report">Мій звіт</button></nav></header><main id="lesson"></main><script>
+(function () {
+  const lesson = document.getElementById('lesson');
+  const cardMarkup = '<section class="time-engineers-card" aria-labelledby="time-engineers-title">\n  <div class="time-engineers-icon" aria-hidden="true">⚙️ ⏳</div>\n  <div>\n    <span class="time-engineers-label">ІНТЕРАКТИВНИЙ КВЕСТ</span>\n    <h2 id="time-engineers-title">Інженери часу</h2>\n    <p>Чотири інженерні виклики: виправляйте Python-код, перевіряйте дати й запускайте власні рішення. Працює зі смартфона.</p>\n    <a class="time-engineers-button" href="../quests/inzhenery_chasu.html">Розпочати квест →</a>\n  </div>\n</section>\n';
+  function placeQuest() {
+    if (document.getElementById('time-engineers-title')) return true;
+    const candidates = lesson.querySelectorAll('h1,h2,h3,h4,h5,h6,.title,.heading,strong,b');
+    let heading = Array.from(candidates).find(el => el.textContent.trim().replace(/\s+/g,' ').replace(/[.:!?]+$/,'') === 'Ваш результат');
+    if (!heading) {
+      heading = Array.from(lesson.querySelectorAll('*')).find(el => el.children.length === 0 && el.textContent.trim() === 'Ваш результат');
+    }
+    if (!heading) return false;
+    let block = heading.closest('section,article,.card,.panel,.result,.result-card');
+    if (!block || block === lesson) {
+      block = heading;
+      while (block.parentElement && block.parentElement !== lesson && !/^(SECTION|ARTICLE)$/.test(block.tagName)) block = block.parentElement;
+    }
+    if (block && block !== lesson) {
+      block.insertAdjacentHTML('afterend', cardMarkup);
+      return true;
+    }
+    return false;
+  }
+  if (!placeQuest()) {
+    const observer = new MutationObserver(() => { if (placeQuest()) observer.disconnect(); });
+    observer.observe(lesson, {childList:true,subtree:true,characterData:true});
+  }
+})();
+</script><footer>Проєктний Python · Тема 10 / 32</footer><div id="live" role="status" aria-live="polite"></div></body></html>
