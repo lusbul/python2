@@ -1,0 +1,5 @@
+station,temperature,battery,status
+M01,-25,92,stable
+M02,-18,76,stable
+M03,-8,41,warning
+M04,-13,63,stable

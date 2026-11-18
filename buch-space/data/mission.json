@@ -1,0 +1,7 @@
+{
+  "mission": "BUCH-MARS",
+  "target": "sector-7",
+  "speed": 2,
+  "action": "scan",
+  "approved": false
+}
